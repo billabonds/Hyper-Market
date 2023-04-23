@@ -23,11 +23,11 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    Integer totalCost;
+    Integer Cardtotal;
 
     Integer numberOfItems;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn
     Customer customer;
 

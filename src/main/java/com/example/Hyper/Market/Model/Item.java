@@ -30,4 +30,7 @@ public class Item {
     @ManyToOne
     @JoinColumn
     Ordered order;
+
+    @OneToOne
+    Product product;
 }
