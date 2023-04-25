@@ -28,10 +28,35 @@ public class ProductController {
 
 
     // Get all products of a particular Category
-    @GetMapping("/get/{category}")                                                         // 2nd API - Working...
+    @GetMapping("/get/{category}")                                                         // 2nd API - done
     public List<ProductResponseDto> getAllProductsByCategory(@PathVariable ("category") ProductCategory category){
 
         return productService.getAllProductsByCategory(category);
     }
 
+
+    @GetMapping("/get/{price}/{category}")
+    public List<ProductResponseDto> getAllProductsByPriceAndCategory(
+                                                @PathVariable("price") int price,
+                                                @PathVariable("category") ProductCategory productCategory){
+
+        return productService.getAllProductsByPriceAndCategory(price,productCategory);
+    }
+
+
+
+
+
+
+    // ------------------------------  Work (21-04-23) ---------------------------------------------
+
+            //  1. Get all products by seller email-Id.
+            //  2. Delete a product by seller-Id & product-Id.
+            //  3. Return top 5 Cheapest products.
+            //  4. Return all out of stocks products.
+            //  5. Return all available products.
+            //  6. Return all products that have quantity less than 10.
+            //  7. Return the cheapest product in a particular category.
+
+        // -----------------------------------------------------------------------------------------------
 }

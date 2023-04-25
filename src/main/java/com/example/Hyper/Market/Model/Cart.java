@@ -2,10 +2,7 @@ package com.example.Hyper.Market.Model;
 
 import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.ArrayList;
@@ -17,6 +14,7 @@ import java.util.List;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)                     // access level for private
 @Table(name = "cart")
+@Builder
 public class Cart {
 
     @Id

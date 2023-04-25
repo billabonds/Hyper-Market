@@ -2,10 +2,7 @@ package com.example.Hyper.Market.Model;
 
 import com.example.Hyper.Market.Enum.CardType;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
@@ -16,6 +13,7 @@ import java.util.Date;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)                     // access level for private
 @Table(name = "card")
+@Builder
 public class Card {
 
     @Id

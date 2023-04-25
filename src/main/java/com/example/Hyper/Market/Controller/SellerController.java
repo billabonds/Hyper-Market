@@ -34,15 +34,16 @@ public class SellerController {
         }
     }
 
-    // ------------------------------  Work (21-04-23) ---------------------------------------------
 
-        //        1. Get a seller by email.
-        //        2. Get by id.
-        //        3. Get all seller.
-        //        4. Update seller info based on email-id.
-        //        5. Delete a seller based on email.
-        //        6. Delete by Id.
-        //        7. Get all sellers of a particular age.
+        // ------------------------------  Work (21-04-23) ---------------------------------------------
 
-    // -----------------------------------------------------------------------------------------------
+            //  1. Get a seller by email.
+            //  2. Get by id.
+            //  3. Get all seller.
+            //  4. Update seller info based on email-id.
+            //  5. Delete a seller based on email.
+            //  6. Delete by Id.
+            //  7. Get all sellers of a particular age.
+
+        // -----------------------------------------------------------------------------------------------
 }

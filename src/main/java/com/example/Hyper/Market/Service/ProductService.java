@@ -47,6 +47,7 @@ public class ProductService {
         return productResponseDto;
     }
 
+
     public List<ProductResponseDto> getAllProductsByCategory(ProductCategory category) {
 
         List<Product> products = productRepository.findByProductCategory(category);
@@ -54,6 +55,21 @@ public class ProductService {
 
         for(Product product : products){
                 productResponseDtos.add(ProductTransformer.ProductToProductResponseDto(product));
+        }
+
+        return productResponseDtos;
+    }
+
+
+    public List<ProductResponseDto> getAllProductsByPriceAndCategory(int price,ProductCategory category){
+
+        List<Product> products = productRepository.getAllProductsByPriceAndCategory(price,category);
+
+        List<ProductResponseDto> productResponseDtos = new ArrayList<>();
+
+        for(Product product : products){
+
+            productResponseDtos.add(ProductTransformer.ProductToProductResponseDto(product));
         }
 
         return productResponseDtos;
