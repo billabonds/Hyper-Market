@@ -15,7 +15,7 @@ public class SellerService {
     @Autowired
     SellerRepository sellerRepository;
 
-
+                                                                                                    // 1st API
     public SellerResponseDto addSeller(SellerRequestDto sellerRequestDto) throws EmailAlreadyPresentException {
 
 //        Seller seller = new Seller();

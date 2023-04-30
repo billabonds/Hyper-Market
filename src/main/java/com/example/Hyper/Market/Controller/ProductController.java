@@ -18,6 +18,7 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+
     @PostMapping("/add")                                                                    // 1st API - done
     public ProductResponseDto addProduct(@RequestBody ProductRequestDto productRequestDto) throws InvalidSellerException {
 
@@ -35,7 +36,7 @@ public class ProductController {
     }
 
 
-    @GetMapping("/get/{price}/{category}")
+    @GetMapping("/get/{price}/{category}")                                                 // 3rd API - done
     public List<ProductResponseDto> getAllProductsByPriceAndCategory(
                                                 @PathVariable("price") int price,
                                                 @PathVariable("category") ProductCategory productCategory){

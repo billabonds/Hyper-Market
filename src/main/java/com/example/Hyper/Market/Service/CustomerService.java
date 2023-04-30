@@ -17,6 +17,8 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
+
+                                                                                                // 1st API
     public CustomerResponseDto addCustomer(CustomerRequestDto customerRequestDto) throws MobileNoAlreadyPresentException {
 
         if(customerRepository.findByMobNo(customerRequestDto.getMobNo()) != null)
@@ -26,7 +28,7 @@ public class CustomerService {
 
         Customer customer = CustomerTransformer.CustomerRequestDtoToCustomer(customerRequestDto);
         Cart cart = Cart.builder()
-                .Cardtotal(0)
+                .cartTotal(0)
                 .numberOfItems(0)
                 .customer(customer)
                 .build();

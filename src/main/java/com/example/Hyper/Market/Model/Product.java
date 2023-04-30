@@ -7,6 +7,9 @@ import jdk.jfr.Category;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,6 +39,6 @@ public class Product {
     @JoinColumn
     Seller seller;
 
-    @OneToOne(mappedBy = "product",cascade = CascadeType.ALL)            // define parent class
-    Item item;
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)            // define parent class
+    List<Item> itemList = new ArrayList<>();
 }

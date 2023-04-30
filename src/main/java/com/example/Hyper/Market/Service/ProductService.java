@@ -1,9 +1,13 @@
 package com.example.Hyper.Market.Service;
 
 import com.example.Hyper.Market.DTO.RequestDto.ProductRequestDto;
+import com.example.Hyper.Market.DTO.ResponseDto.ItemResponseDto;
 import com.example.Hyper.Market.DTO.ResponseDto.ProductResponseDto;
 import com.example.Hyper.Market.Enum.ProductCategory;
+import com.example.Hyper.Market.Enum.ProductStatus;
 import com.example.Hyper.Market.Exception.InvalidSellerException;
+import com.example.Hyper.Market.Model.Item;
+import com.example.Hyper.Market.Model.Ordered;
 import com.example.Hyper.Market.Model.Product;
 import com.example.Hyper.Market.Model.Seller;
 import com.example.Hyper.Market.Repository.ProductRepository;
@@ -25,6 +29,9 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
+    // -----------------------------------------------------------------------
+
+                                                                                            // 1st API
     public ProductResponseDto addProduct(ProductRequestDto productRequestDto) throws InvalidSellerException {
 
         Seller seller;
@@ -47,7 +54,7 @@ public class ProductService {
         return productResponseDto;
     }
 
-
+                                                                                            // 2nd API
     public List<ProductResponseDto> getAllProductsByCategory(ProductCategory category) {
 
         List<Product> products = productRepository.findByProductCategory(category);
@@ -61,6 +68,7 @@ public class ProductService {
     }
 
 
+                                                                                            // 3rd API
     public List<ProductResponseDto> getAllProductsByPriceAndCategory(int price,ProductCategory category){
 
         List<Product> products = productRepository.getAllProductsByPriceAndCategory(price,category);
@@ -73,6 +81,25 @@ public class ProductService {
         }
 
         return productResponseDtos;
+    }
+
+                                                                                            // 4th API
+    public void decreaseProductQuantity(Item item) throws Exception {
+
+            Product product = item.getProduct();
+            int quantity = item.getRequiredQuantity();
+            int currentQuantity = product.getQuantity();
+
+            if(quantity > currentQuantity){
+                throw new Exception("Out of Stock");
+            }
+
+            product.setQuantity(currentQuantity - quantity);
+
+            if(product.getQuantity() == 0){
+                product.setProductStatus(ProductStatus.OUT_OF_STOCK);
+            }
+
     }
 
 }

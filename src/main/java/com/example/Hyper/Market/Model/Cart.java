@@ -21,7 +21,7 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    Integer Cardtotal;
+    Integer cartTotal;
 
     Integer numberOfItems;
 

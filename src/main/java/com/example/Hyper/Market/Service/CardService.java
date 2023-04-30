@@ -21,6 +21,7 @@ public class CardService {
     @Autowired
     CustomerRepository customerRepository;
 
+                                                                                        // 1st API
     public CardResponseDto addCard(CardRequestDto cardRequestDto) throws InvalidCustomerException {
 
         Customer customer = customerRepository.findByMobNo(cardRequestDto.getMobNo());
@@ -35,11 +36,9 @@ public class CardService {
         customerRepository.save(customer);
 
         // create response Dto
-
         return CardResponseDto.builder()
                 .customerName(customer.getName())
                 .cardNo(card.getCardNo())
                 .build();
-
     }
 }

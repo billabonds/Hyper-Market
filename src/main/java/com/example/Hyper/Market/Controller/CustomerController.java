@@ -18,11 +18,17 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-    @PostMapping("/add")
+    @PostMapping("/add")                                                                         // 1st API
     public CustomerResponseDto addCustomer(@RequestBody CustomerRequestDto customerRequestDto) throws MobileNoAlreadyPresentException {
 
         return customerService.addCustomer(customerRequestDto);
     }
+
+
+
+
+
+
 
     // ------------------------------  Work (24-04-23) ---------------------------------------------
 
